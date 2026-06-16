@@ -50,3 +50,63 @@ com.yourcompany.RemoteRecruit
 ```
 
 After updating the Bundle Identifier, select your development team in the **Signing & Capabilities** tab and run the application on your device.
+
+
+## Architecture
+
+The **RemoteRecruit** project follows the **MVVM (Model-View-ViewModel)** architecture pattern, which helps maintain a clear separation of concerns and improves code maintainability, testability, and scalability.
+
+
+### MVVM Project Structure
+
+There are two common approaches to organizing an MVVM-based project:
+
+1. **Layer-Based Structure**
+2. **Feature-Based Structure**
+
+For this project, a **Layer-Based Structure** has been chosen because the application currently consists of a single feature with two screens:
+
+* **Job List**
+* **Job Details**
+
+Given the simplicity and size of the application, a Layer-Based Structure provides a clean and organized codebase without introducing unnecessary complexity.
+
+### Project Organization
+
+The project is organized into the following groups:
+
+#### Model
+
+Contains data models used throughout the application.
+
+#### View
+
+Contains SwiftUI views responsible for presenting UI elements to the user.
+
+#### ViewModel
+
+Contains business logic and presentation logic that connects the Views with the Models.
+
+#### Services
+
+Contains network-related services, API handling, and data-fetching logic.
+
+#### Protocols
+
+Contains all protocol definitions used for abstraction, dependency injection, and improved testability.
+
+#### Helpers
+
+Contains extensions, and we can keep other reusable helper components here.
+
+#### App
+
+Contains application-level files, including app entry points and configuration-related files.
+
+### Benefits of This Structure
+
+* Clear separation of responsibilities
+* Easy navigation and maintenance
+* Improved code reusability
+* Better testability through protocol-based abstractions
+* Scalable foundation for future enhancements
