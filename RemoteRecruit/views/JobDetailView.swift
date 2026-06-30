@@ -14,8 +14,6 @@ struct JobDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 if viewModel.jobDetail == nil || !viewModel.displayText.isEmpty {
-                    ProgressView()
-                        .progressViewStyle(.automatic)
                     Text(viewModel.displayText)
                         .padding()
                 } else {
