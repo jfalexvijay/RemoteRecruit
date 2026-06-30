@@ -17,7 +17,7 @@ class JobListViewModelTest: XCTestCase {
         mockWebService = MockWebService()
         let webService = JobsWebService(urlString: JobConstant.baseUrl, webService: mockWebService)
         sut = await JobListViewModel(webService: webService)
-        param = JobListRequestParam()
+        param = await JobListRequestParam()
     }
     
     override func tearDown() async throws {

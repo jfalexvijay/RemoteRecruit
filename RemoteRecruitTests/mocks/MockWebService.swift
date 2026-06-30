@@ -8,7 +8,7 @@
 import Foundation
 @testable import RemoteRecruit
 
-class MockWebService: WebServiceProtocol {
+nonisolated class MockWebService: WebServiceProtocol {
     
     var data: Data?
     

@@ -16,7 +16,7 @@ class JobDetailWebServiceTest: XCTestCase {
     override func setUp() async throws {
         mockWebService = MockWebService()
         webService = JobDetailWebService(urlString: JobConstant.baseUrl, webService: mockWebService)
-        param = JobDetailRequestParam()
+        param = await JobDetailRequestParam()
     }
     
     override func tearDown() async throws {

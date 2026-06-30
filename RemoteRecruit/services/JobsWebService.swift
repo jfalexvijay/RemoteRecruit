@@ -7,9 +7,9 @@
 
 import Foundation
 
-final class JobsWebService: JobListWebServiceProtocol {
-    let urlString: String
-    let urlSession: URLSession
+nonisolated final class JobsWebService: JobListWebServiceProtocol {
+    private let urlString: String
+    private let urlSession: URLSession
     private let webService: WebServiceProtocol
     
     init(urlString: String, urlSession: URLSession = .shared, webService: WebServiceProtocol = WebService()) {

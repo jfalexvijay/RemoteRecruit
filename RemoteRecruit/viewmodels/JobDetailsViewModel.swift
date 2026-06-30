@@ -7,7 +7,6 @@
 
 import Combine
 
-@MainActor
 final class JobDetailsViewModel: ObservableObject {
     @Published var jobDetail: JobDetail?
     @Published var isLoading: Bool = false
@@ -15,8 +14,7 @@ final class JobDetailsViewModel: ObservableObject {
     let webService: JobDetailWebServiceProtocol
     var param = JobDetailRequestParam()
     
-    init(jobDetail: JobDetail? = nil, webService: JobDetailWebServiceProtocol, jobId: String!) {
-        self.jobDetail = jobDetail
+    init(webService: JobDetailWebServiceProtocol = JobDetailWebService(urlString: JobConstant.JobDetail.url), jobId: String!) {
         self.webService = webService
         param.job_id = jobId
     }
@@ -28,13 +26,11 @@ final class JobDetailsViewModel: ObservableObject {
         if let data = data {
             self.jobDetail = data
             displayText = ""
-        } else {
-            self.jobDetail = nil
-            displayText = "Job details are not available"
-        }
+        } else
         if let error = error {
-            self.jobDetail = nil 
             displayText = error.errorDescription ?? "Error!"
+        } else {
+            displayText = "Job details are not available"
         }
         isLoading = false
     }

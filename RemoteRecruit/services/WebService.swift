@@ -7,9 +7,9 @@
 
 import Foundation
 
-final class WebService: WebServiceProtocol {
+nonisolated final class WebService: WebServiceProtocol {
     
-    nonisolated func fetchData<T: Decodable>(urlString: String, urlSession: URLSession = .shared, param: RequestParam, type: T.Type) async -> (T?, JobError?) {
+    func fetchData<T: Decodable>(urlString: String, urlSession: URLSession = .shared, param: RequestParam, type: T.Type) async -> (T?, JobError?) {
         var component = URLComponents(string: urlString)
         component?.setQueryItems(from: param)
         guard let url = component?.url else {
@@ -29,7 +29,7 @@ final class WebService: WebServiceProtocol {
         }
     }
     
-    nonisolated func getRequest(url: URL) -> URLRequest {
+    func getRequest(url: URL) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")

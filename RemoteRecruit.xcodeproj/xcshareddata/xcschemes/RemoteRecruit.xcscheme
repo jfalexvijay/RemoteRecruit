@@ -51,7 +51,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2ECAD4062FDFBCBD00A4591E"
+               BlueprintIdentifier = "2EEE8D5C2FE266F300B4682D"
                BuildableName = "RemoteRecruitUITests.xctest"
                BlueprintName = "RemoteRecruitUITests"
                ReferencedContainer = "container:RemoteRecruit.xcodeproj">

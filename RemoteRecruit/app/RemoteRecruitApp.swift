@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct RemoteRecruitApp: App {
-    @StateObject private var viewModel = JobListViewModel(webService: JobsWebService(urlString: JobConstant.JobList.url))
-    
     var body: some Scene {
         WindowGroup {
-            JobListView(viewModel: viewModel)
+            NavigationStack {
+                JobListView(viewModel: JobListViewModel())
+            }
         }
     }
 }

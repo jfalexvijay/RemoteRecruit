@@ -15,7 +15,7 @@ class WebServiceTest: XCTestCase {
     
     override func setUp() async throws {
         sut = WebService()
-        param = JobListRequestParam()
+        param = await JobListRequestParam()
     }
     
     override func tearDown() async throws {

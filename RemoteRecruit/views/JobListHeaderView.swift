@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct JobListHeaderView: View {
-    @ObservedObject var viewModel: JobListViewModel
+    let showProgressView: Bool
     
     var body: some View {
         HStack {
@@ -17,33 +17,13 @@ struct JobListHeaderView: View {
                 .padding()
                 .foregroundColor(.white)
             Spacer()
-            Button(action: onButtonClick, label: {
-                buttonLabel()
-            })
-            .padding()
-            .tint(.white)
-        }
-        .background(.black)
-    }
-    
-    @ViewBuilder
-    private func buttonLabel() -> some View {
-        if viewModel.isLoading {
-            ProgressView()
-                .progressViewStyle(.circular)
-        } else {
-            Image(systemName: "arrow.clockwise")
-                .accessibilityLabel("Reload")
-        }
-    }
-    
-    private func onButtonClick() {
-        if !viewModel.isLoading {
-            viewModel.searchText = ""
-            viewModel.debounceText = ""
-            Task {
-                await viewModel.fetchJobList()
+            if showProgressView {
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .padding()
+                    .tint(.white)
             }
         }
+        .background(.black)
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class JobListRequestParam: RequestParam {
+struct JobListRequestParam: RequestParam {
     var country: String
     var page: Int
     var num_pages: Int
@@ -27,14 +27,5 @@ final class JobListRequestParam: RequestParam {
         case num_pages
         case date_posted
         case query
-    }
-    
-    required init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.country = try container.decode(String.self, forKey: .country)
-        self.page = try container.decode(Int.self, forKey: .page)
-        self.num_pages = try container.decode(Int.self, forKey: .num_pages)
-        self.date_posted = try container.decode(String.self, forKey: .date_posted)
-        self.query = try container.decode(String.self, forKey: .query)
     }
 }
